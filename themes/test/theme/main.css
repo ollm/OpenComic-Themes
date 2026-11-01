@@ -1,0 +1,14 @@
+:root
+{
+	--md-sys-color-primary-light: #78a9ff;
+	--md-sys-color-primary-dark: #a9c7ff;
+	--md-sys-color-background-light: #e8edf7;
+	--md-sys-color-background-dark: #101827;
+}
+
+.app
+{
+	--md-sys-color-primary: #78a9ff;
+	--md-sys-color-background: #101827;
+	--md-sys-color-surface: #182337;
+}

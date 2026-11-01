@@ -1,0 +1,9 @@
+{
+	"name": "Midnight Blue",
+	"version": "1.0.0",
+	"author": "OpenComic Themes",
+	"description": "A dark blue example theme.",
+	"opencomicVersion": ">=1.6.0 <2.0.0",
+	"main": "theme/main.css",
+	"preview": "preview.png"
+}

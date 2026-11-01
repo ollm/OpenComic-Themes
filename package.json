@@ -1,0 +1,26 @@
+{
+  "name": "opencomic-themes",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:catalog": "node scripts/build-catalog.js",
+    "test": "node --test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ollm/OpenComic-Themes.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ollm/OpenComic-Themes/issues"
+  },
+  "homepage": "https://github.com/ollm/OpenComic-Themes#readme",
+  "dependencies": {
+    "7zip-bin-full": "^26.5.1",
+    "node-7z": "github:ollm/node-7z",
+    "sharp": "^0.35.5"
+  }
+}
