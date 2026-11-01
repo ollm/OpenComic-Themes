@@ -30,6 +30,11 @@ const previewSizes = [
 if(!fs.existsSync(distDirectory))
 	fs.mkdirSync(distDirectory, {recursive: true});
 
+// Remove old files in dist
+const files = fs.readdirSync(distDirectory);
+for(const file of files)
+	fs.rmSync(p.resolve(distDirectory, file), {recursive: true, force: true});
+
 if(!fs.existsSync(previewDirectory))
 	fs.mkdirSync(previewDirectory, {recursive: true});
 

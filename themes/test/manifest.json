@@ -1,9 +1,16 @@
 {
 	"name": "Midnight Blue",
 	"version": "1.0.0",
-	"author": "OpenComic Themes",
+	"authors": [
+		{
+			"name": "Oleguer Llopart",
+			"email": "oleguer.llopart.mora@gmail.com",
+			"url": "https://github.com/ollm"
+		}
+	],
 	"description": "A dark blue example theme.",
 	"opencomicVersion": ">=1.6.0 <2.0.0",
+	"baseColor": "blue",
 	"main": "theme/main.css",
 	"preview": "preview.png"
 }

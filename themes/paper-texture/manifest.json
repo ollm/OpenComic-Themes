@@ -1,0 +1,16 @@
+{
+	"name": "Paper Texture",
+	"version": "1.0.0",
+	"authors": [
+		{
+			"name": "Oleguer Llopart",
+			"email": "oleguer.llopart.mora@gmail.com",
+			"url": "https://github.com/ollm"
+		}
+	],
+	"description": "A paper texture example theme.",
+	"opencomicVersion": ">=1.6.0 <2.0.0",
+	"baseColor": "red",
+	"main": "theme/main.css",
+	"preview": "preview.png"
+}

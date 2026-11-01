@@ -173,10 +173,49 @@ export async function validateTheme(themeDirectory)
 		}
 		else
 		{
-			for(const field of ['name', 'version', 'author', 'description', 'opencomicVersion'])
+			for(const field of ['name', 'version', 'description', 'opencomicVersion'])
 			{
 				if(typeof manifest[field] !== 'string' || manifest[field].trim() === '')
 					errors.push(`manifest.json: "${field}" must be a non-empty string`);
+			}
+
+			if(!Array.isArray(manifest.authors) || manifest.authors.length === 0)
+			{
+				errors.push('manifest.json: "authors" must be a non-empty array');
+			}
+			else
+			{
+				for(const [index, author] of manifest.authors.entries())
+				{
+					const prefix = `manifest.json: "authors[${index}]"`;
+
+					if(author === null || typeof author !== 'object' || Array.isArray(author))
+					{
+						errors.push(`${prefix} must be an object`);
+						continue;
+					}
+
+					if(typeof author.name !== 'string' || author.name.trim() === '')
+						errors.push(`${prefix}.name must be a non-empty string`);
+
+					if(author.email !== undefined && (typeof author.email !== 'string' || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/u.test(author.email)))
+						errors.push(`${prefix}.email must be a valid email address`);
+
+					if(author.url !== undefined)
+					{
+						try
+						{
+							const url = new URL(author.url);
+
+							if(!['http:', 'https:'].includes(url.protocol))
+								errors.push(`${prefix}.url must use HTTP or HTTPS`);
+						}
+						catch
+						{
+							errors.push(`${prefix}.url must be a valid HTTP or HTTPS URL`);
+						}
+					}
+				}
 			}
 
 			const mainFile = resolveThemeFile(directory, manifest.main, 'main', errors);

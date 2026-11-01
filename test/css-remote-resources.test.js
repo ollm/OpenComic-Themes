@@ -18,7 +18,7 @@ async function createTheme(t, cssFiles, previewDimensions = {width: 1600, height
 	const manifest = {
 		name: 'Test theme',
 		version: '1.0.0',
-		author: 'Test',
+		authors: [{name: 'Test'}],
 		description: 'Theme fixture',
 		opencomicVersion: '>=1.6.0 <2.0.0',
 		main: 'theme/main.css',
@@ -50,6 +50,29 @@ test('accepts a theme with local CSS resources and a 16:9 preview', async t => {
 	});
 
 	assert.deepEqual(await validateTheme(directory), []);
+});
+
+test('rejects invalid author entries', async t => {
+	const directory = await createTheme(t, {
+		'theme/main.css': 'body { color: red; }',
+	});
+	const manifestPath = path.join(directory, 'manifest.json');
+	const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+
+	manifest.authors = [
+		{name: ''},
+		{name: 'Invalid email', email: 'not-an-email'},
+		{name: 'Invalid URL', url: 'javascript:alert(1)'},
+		null,
+	];
+	fs.writeFileSync(manifestPath, JSON.stringify(manifest));
+
+	const result = await validateTheme(directory);
+
+	assert.ok(result.includes('manifest.json: "authors[0]".name must be a non-empty string'));
+	assert.ok(result.includes('manifest.json: "authors[1]".email must be a valid email address'));
+	assert.ok(result.includes('manifest.json: "authors[2]".url must use HTTP or HTTPS'));
+	assert.ok(result.includes('manifest.json: "authors[3]" must be an object'));
 });
 
 test('rejects remote resources in every CSS file in the theme', async t => {

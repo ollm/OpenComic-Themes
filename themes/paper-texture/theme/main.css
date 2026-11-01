@@ -1,0 +1,11 @@
+.app
+{
+	--md-sys-bg-surface-container: url('./assets/texture.jpg');
+	--md-sys-bg-background: url('./assets/texture-background.jpg');
+}
+
+.app.night-mode
+{
+	--md-sys-bg-surface-container: url('./assets/texture-night.jpg');
+	--md-sys-bg-background: url('./assets/texture-background-night.jpg');
+}
