@@ -1,5 +1,5 @@
 {
-	"name": "Midnight Blue",
+	"name": "Neon Nocturne",
 	"version": "1.0.0",
 	"authors": [
 		{
@@ -8,7 +8,7 @@
 			"url": "https://github.com/ollm"
 		}
 	],
-	"description": "A dark blue example theme.",
+	"description": "A dark neon theme with charcoal surfaces and pink, cyan, and violet accents.",
 	"opencomicVersion": ">=1.6.0 <2.0.0",
 	"baseColor": "blue",
 	"main": "theme/main.css",
