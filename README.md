@@ -32,7 +32,7 @@ The manifest should contain:
 
 - `name`: display name.
 - `version`: theme version using Semantic Versioning.
-- `authors`: non-empty array of author objects. Each author must have a `name`; `email` and `url` are optional.
+- `authors`: non-empty array of author objects. Each author must have a `name`, `email` and `url`.
 - `description`: short summary of the theme.
 - `opencomicVersion`: supported OpenComic version range using Semantic Versioning.
 - `baseColor`: OpenComic's base theme (`blue`, `green`, `red`, `yellow`)
