@@ -198,19 +198,22 @@ export async function validateTheme(themeDirectory)
 					if(typeof author.name !== 'string' || author.name.trim() === '')
 						errors.push(`${prefix}.name must be a non-empty string`);
 
-					if(typeof author.email !== 'string' || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/u.test(author.email))
+					if(author.email !== undefined && (typeof author.email !== 'string' || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/u.test(author.email)))
 						errors.push(`${prefix}.email must be a valid email address`);
 
-					try
+					if(author.url !== undefined)
 					{
-						const url = new URL(author.url);
+						try
+						{
+							const url = new URL(author.url);
 
-						if(!['http:', 'https:'].includes(url.protocol))
-							errors.push(`${prefix}.url must use HTTP or HTTPS`);
-					}
-					catch
-					{
-						errors.push(`${prefix}.url must be a valid HTTP or HTTPS URL`);
+							if(!['http:', 'https:'].includes(url.protocol))
+								errors.push(`${prefix}.url must use HTTP or HTTPS`);
+						}
+						catch
+						{
+							errors.push(`${prefix}.url must be a valid HTTP or HTTPS URL`);
+						}
 					}
 				}
 			}
