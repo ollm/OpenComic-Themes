@@ -7,24 +7,26 @@ Community themes for [OpenComic](https://github.com/ollm/OpenComic).
 Each theme lives in its own directory under `themes/`:
 
 ```text
-themes/
-└── midnight-blue/
+themes
+└── midnight-blue
     ├── manifest.json
     ├── preview.png
-    └── theme/
+    └── theme
         ├── main.css
         ├── colors.css
-        └── assets/
+        └── assets
             └── background.png
 ```
 
 - Use a unique, lowercase directory name such as `midnight-blue`.
 - The directory name is the theme's stable identifier. Do not rename the directory after publishing.
 - `manifest.json` describes the theme. See [`manifest-sample.json`](./manifest-sample.json).
-- Include a `preview.png` or `preview.jpg` image showing the theme in OpenComic. It must have a 16:9 aspect ratio, for example 1280x720.
-- Put the CSS files and any local assets in `theme/`.
-- `theme/main.css` is the required entry point. It may import other CSS files using relative paths.
+- Include a preview image showing the theme in OpenComic. It must have a 16:9 aspect ratio, for example 1280x720.
+- Put the CSS files and any local assets in `theme`.
+- `theme/xxxx.css` is the required entry point. It may import other CSS files using relative paths.
 - Keep theme files self-contained. Avoid remote imports and resources, custom CSS can affect privacy and application behavior and are not allowed.
+
+You can view the current themes as a reference in the [`themes`](https://github.com/ollm/OpenComic-Themes/tree/main/themes) directory.
 
 ## Manifest fields
 
